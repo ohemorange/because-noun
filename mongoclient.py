@@ -17,4 +17,7 @@ def insert_post(post):
    post_id = posts.insert(post)
    return post_id
 
- 
+# insert all posts in a list into db
+def insert_posts(posts):
+   for post in posts:
+      insert_post(post)
