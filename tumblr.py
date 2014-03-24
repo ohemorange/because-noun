@@ -1,7 +1,6 @@
 import pytumblr
 import secret
-import time
-import calendar
+from datelib import *
 
 consumer = 'h93vg3vWvfWJKloahZ6EoJzVwv9D2FhORp3degELUdk4WK6puF'
 app  = 'OLXURhKe7gUw8dE1A142VQjHDYoxNDMGHYncQSGHiL5eoxGq4v'
@@ -38,10 +37,8 @@ def process_post(post):
 # returns an array of formatted posts
 # from day of timestamp in UTC, no DST
 def get_posts(month, day, year, tag="lol"):
-    end_struct = time.struct_time((year, month, day, 23, 59, 59, 0, 0, 0))
-    end = calendar.timegm(end_struct)
-    begin_struct = time.struct_time((year,month,day,0,0,0,0,0,0))
-    begin = calendar.timegm(begin_struct)
+    end = end_timestamp(month, day, year)
+    begin = begin_timestamp(month, day, year)
     response = client.tagged(tag, filter="text", before=end)
     within_day = [item for item in response if item["timestamp"] >= begin]
     out = [process_post(post) for post in within_day]
