@@ -6,6 +6,7 @@
 # just inserts into the db
 
 from pymongo import MongoClient
+from datelib import *
 
 # startup connection to db
 client = MongoClient()
@@ -21,3 +22,22 @@ def insert_post(post):
 def insert_posts(posts):
    for post in posts:
       insert_post(post)
+
+def get_posts_from_day(month, day, year):
+   end = end_timestamp(month, day, year)
+   begin = begin_timestamp(month, day, year)
+   day_posts = posts.find({"timestamp":{"$gt":begin, "$lt":end}})
+   return day_posts
+      
+def map(function):
+   all = list(posts.find())
+   for post in all:
+      function(post)
+      posts.save(post)
+
+# must take post as only parameter
+def sample_function(post):
+   post["origin"] = "tumblr"
+
+def sample_map():
+   map(sample_function)

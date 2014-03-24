@@ -17,6 +17,7 @@ def process_post(post):
     out = {}
     # timestamp will be stored in seconds since the epoch
     out["timestamp"] = post["timestamp"]
+    out["origin"] = "tumblr"
     post_type = post["type"]
     # text, quote, link, answer, video, audio, photo, chat
     if post_type == "photo" or post_type == "video" or post_type == "audio":
@@ -29,6 +30,9 @@ def process_post(post):
         text = post["description"]
     elif post_type == "answer":
         text = post["answer"]
+
+    if text == "":
+        return None
         
     out["text"] = text
     out["url"] = post["post_url"] # for reference
@@ -42,4 +46,5 @@ def get_posts(month, day, year, tag="lol"):
     response = client.tagged(tag, filter="text", before=end)
     within_day = [item for item in response if item["timestamp"] >= begin]
     out = [process_post(post) for post in within_day]
+    out = [post for post in out if post is not None]
     return out
