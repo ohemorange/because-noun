@@ -31,7 +31,11 @@ def process_post(post):
     elif post_type == "answer":
         text = post["answer"]
 
-    if text == "":
+    # add the text from tags
+    tags = " ".join([a+"." for a in post["tags"]])
+    text = text + ".\n " + tags
+
+    if text == ".\n ":
         return None
         
     out["text"] = text
