@@ -1,8 +1,21 @@
+# parser.py
+# Erica Portnoy
+# Uses the Stanford parser to parse single sentences
+#
+# To avoid repeated long load times, can only handle
+# single sentences.
+#
+# Usage: spawn_stanford_parser() to load
+# sentence_parse(text) - text need not end in a newline
+# exit_parser() to close
+
+
 import os, sys, subprocess
 
 def feed_to_parser(text):
     p.stdin.write(text + '\n')
 
+# please excuse my hardcoding.
 def spawn_stanford_parser():
     global p
     p = subprocess.Popen('bash stanford-parser-full-2014-01-04/lexparser.sh -sentence newline -', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
