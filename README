@@ -1,0 +1,7 @@
+# Because-noun
+Using the web as a corpus to look for evidence of linguistic change.
+Erica Portnoy, 2014.
+
+# Notes
+models.jar, englishRNN, and wsjRNN are not included in this repo.
+If you want them, download stanford-parser-full.

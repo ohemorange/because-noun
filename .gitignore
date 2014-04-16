@@ -1,4 +1,7 @@
 *.pyc
 *~
 secret.py
-stanford-parser-python-r22186/stanford-parser-full-2014-01-04/stanford-parser-3.3.1-models.jar
+stanford-parser-full-2014-01-04/edu/stanford/nlp/models/lexparser/englishRNN.ser.gz
+stanford-parser-full-2014-01-04/edu/stanford/nlp/models/lexparser/wsjRNN.ser.gz
+stanford-parser-full-2014-01-04/stanford-parser-3.3.1-models.jar
+
