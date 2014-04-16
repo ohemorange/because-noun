@@ -1,0 +1,6 @@
+Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ... done [3.8 sec].
+Parsing file: -
+Parsing [sent. 1 len. 7]: This is a sentence because awesome .
+Parsing [sent. 2 len. 2]: Sorry .
+Parsed file: - [2 sentences].
+Parsed 9 words in 2 sentences (17.18 wds/sec; 3.82 sents/sec).

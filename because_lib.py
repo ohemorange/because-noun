@@ -1,21 +1,34 @@
+# call exit_because when done.
+
 import nltk
 import re
+from parser import *
 
-p = re.compile('NN.*|JJ.*|VBG')
+re_bc = re.compile('.*because.*', re.IGNORECASE)
+
+parser_running = False
 
 # sometimes clause, sometimes sentence
 def sentence_has_because(sentence):
-    tokens = nltk.word_tokenize(sentence)
-    if len(tokens) <= 0:
+    global re_bc, parser_running
+    # first, check if because is in there at all
+    if re.search(re_bc, sentence) is None:
         return False
-    if tokens[-1] == ".":
-        tokens = tokens[:-1]
-    if len(tokens) < 2 or tokens[-2].lower() != "because":
-        return False
-    tagged = nltk.pos_tag(tokens) # tagged with part of speech                                                                          
-    (a,b) = tagged[-1]
-    if p.match(b) != None:
-        return True
+
+    # if it is, load up the parser
+    if not parser_running:
+        spawn_stanford_parser()
+        parser_running = True
+
+    # do fancy parsing things with the parse tree
+    s_nlp_out = sentence_parse(sentence)
+    tparse = nltk.tree.Tree.parse
+    tree = tparse(s_nlp_out)
+    print tree
+    return True
+
+    # TODO finish this method
+
 
 # takes text
 # returns whether or not the text contains a
@@ -36,3 +49,19 @@ def has_because(text):
             return True
 
     return False
+
+# call when finished to close parser if needed
+def exit_because():
+    global parser_running
+    if parser_running:
+        exit_parser()
+        parser_running = False
+
+def test():
+    s = "This is a sentence."
+    t = "This is a sentence because awesome."
+    print has_because(s)
+    print has_because(t)
+    exit_because()
+
+test()
