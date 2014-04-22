@@ -20,6 +20,7 @@ def spawn_stanford_parser():
     sys.stdout.flush()
     global p
     p = subprocess.Popen('bash stanford-parser-full-2014-01-04/lexparser.sh -sentence newline -', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    feed_to_parser("")
 
 def exit_parser():
     p.stdin.close()
@@ -32,9 +33,12 @@ def sentence_parse(text):
     p.stdin.flush()
     p.stdout.flush()
     line = p.stdout.readline()
-    out = ""
     while line != "\n":
-        sys.stdout.flush()
+        line = p.stdout.readline()
+    p.stdout.flush()
+    out = ""
+    line = p.stdout.readline()
+    while line != "\n":
         out += line
         line = p.stdout.readline()
     return out

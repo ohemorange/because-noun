@@ -24,10 +24,21 @@ def sentence_has_because(sentence):
     s_nlp_out = sentence_parse(sentence)
     tparse = nltk.tree.Tree.parse
     tree = tparse(s_nlp_out)
-    print tree
-    return True
+    return tree_has_pbc(tree)
 
-    # TODO finish this method
+def is_PP_bc(tree):
+    assert(tree.node == 'PP')
+    return tree[0][0].lower() == 'because'
+
+def tree_has_pbc(tree):
+    if type(tree[-1]) == type('a_string'):
+        return False
+    if tree[-1].node == 'PP' and is_PP_bc(tree[-1]):
+        return True
+    for subtree in tree:
+        if tree_has_pbc(subtree):
+            return True
+    return False
 
 
 # takes text
@@ -62,6 +73,11 @@ def test():
     t = "This is a sentence because awesome."
     print has_because(s)
     print has_because(t)
+    f = open("test_sentences.txt")
+    all = f.read()
+    for s in all.splitlines():
+        print s
+        print sentence_has_because(s)
     exit_because()
 
 test()

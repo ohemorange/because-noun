@@ -1,0 +1,81 @@
+False
+(ROOT
+  (S
+    (NP (DT This))
+    (VP
+      (VBZ is)
+      (NP
+        (NP (DT a) (NN sentence))
+        (PP (RB because) (ADJP (JJ awesome)))))
+    (. .)))
+True
+(ROOT
+  (S
+    (ADVP (RB Sorry))
+    (, ,)
+    (NP (PRP I))
+    (VP
+      (MD ca)
+      (RB n't)
+      (VP
+        (VB make)
+        (NP (PRP it))
+        (ADVP (RB later))
+        (PP (IN because) (NP (NNS reasons)))))
+    (. .)))
+(ROOT
+  (S
+    (VP
+      (MD ca)
+      (RB n't)
+      (VP (VB go) (PP (IN because) (NP (NNS reasons)))))
+    (. .)))
+(ROOT
+  (S
+    (S (NP (PRP I)) (VP (MD would) (VP (VB love) (PP (TO to)))))
+    (, ,)
+    (CC but)
+    (S
+      (NP (PRP I))
+      (VP
+        (MD ca)
+        (RB n't)
+        (PP (IN because) (NP (PRP I)))
+        (VP (VB have) (NP (DT a) (NN thing)))))
+    (. .)))
+(ROOT
+  (S
+    (NP (EX There))
+    (VP
+      (VBZ 's)
+      (NP
+        (NP (NN nothing))
+        (SBAR
+          (S
+            (NP (PRP we))
+            (VP
+              (MD can)
+              (VP
+                (VB do)
+                (SBAR
+                  (IN because)
+                  (S
+                    (NP (NN science))
+                    (VP
+                      (VBZ has)
+                      (RB n't)
+                      (ADVP (RB yet))
+                      (VP (VBN found) (NP (DT a) (NN cure))))))))))))
+    (. .)))
+(ROOT
+  (S
+    (NP (DT No) (PRP it))
+    (VP
+      (MD 'll)
+      (VP
+        (VB be)
+        (NP (JJ super) (NN fun))
+        (PP (IN because) (NP (NN cooking)))))
+    (. .)))
+(ROOT (S (VP (VB Click) (NP (DT this) (NN link))) (. .)))
+(ROOT (FRAG (ADVP (RB Sorry)) (. .)))
