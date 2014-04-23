@@ -48,6 +48,14 @@ def tree_has_pbc(tree):
             return True
     return False
 
+def ends_in_punctuation(sentence):
+    sentence = sentence.strip()
+    ch = sentence[-1]
+    return ch == '.' or ch == '?' or ch == '!'
+
+def end_in_punctuation(sentence):
+    sentence = sentence.strip()
+    return sentence + '.'
 
 # takes text
 # returns whether or not the text contains a
@@ -57,6 +65,9 @@ def tree_has_pbc(tree):
 def has_because(text):
     # ignore whitespace, use proper punctuation
     for sentence in nltk.sent_tokenize(text):
+        # make sure sentence ends in a period
+        if not ends_in_punctuation(sentence):
+            sentence = end_in_punctuation(sentence)
         result = sentence_has_because(sentence)
         if result == True:
             return True
@@ -82,15 +93,18 @@ def exit_because():
 def test():
     s = "This is a sentence."
     t = "This is a sentence because awesome."
+    r = '''this sentence goes on multiple lines
+because testing
+'''
     print s
     print has_because(s)
     print t
     print has_because(t)
+    print r
+    print has_because(r)
     f = open("test_sentences.txt")
     all = f.read()
     for s in all.splitlines():
         print s
         print has_because(s)
     exit_because()
-
-test()

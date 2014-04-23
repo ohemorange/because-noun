@@ -1,23 +1,4 @@
-Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ... done [3.9 sec].
-Parsing file: -
-Parsing [sent. 1 len. 2]: Sorry .
-Parsing [sent. 2 len. 7]: This is a sentence because awesome .
-Parsing [sent. 3 len. 2]: Sorry .
-Parsing [sent. 4 len. 11]: Sorry , I ca n't make it later because reasons .
-Parsing [sent. 5 len. 2]: Sorry .
-Parsing [sent. 6 len. 6]: ca n't go because reasons .
-Parsing [sent. 7 len. 2]: Sorry .
-Parsing [sent. 8 len. 15]: I would love to , but I ca n't because I have a thing .
-Parsing [sent. 9 len. 2]: Sorry .
-Parsing [sent. 10 len. 15]: There 's nothing we can do because science has n't yet found a cure .
-Parsing [sent. 11 len. 2]: Sorry .
-Parsing [sent. 12 len. 9]: No it 'll be super fun because cooking .
-Parsing [sent. 13 len. 2]: Sorry .
-Parsing [sent. 14 len. 3]: Because awesome .
-Parsing [sent. 15 len. 2]: Sorry .
-Parsing [sent. 16 len. 7]: Women get paid less because patriarchy .
-Parsing [sent. 17 len. 2]: Sorry .
-Parsing [sent. 18 len. 3]: because science !
-Parsing [sent. 19 len. 2]: Sorry .
-Parsed file: - [19 sentences].
-Parsed 96 words in 19 sentences (7.26 wds/sec; 1.44 sents/sec).
+  File "because_lib.py", line 103
+    priny r
+          ^
+SyntaxError: invalid syntax
