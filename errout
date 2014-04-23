@@ -1,4 +1,4 @@
-Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ... done [3.8 sec].
+Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ... done [3.9 sec].
 Parsing file: -
 Parsing [sent. 1 len. 2]: Sorry .
 Parsing [sent. 2 len. 7]: This is a sentence because awesome .
@@ -13,10 +13,11 @@ Parsing [sent. 10 len. 15]: There 's nothing we can do because science has n't y
 Parsing [sent. 11 len. 2]: Sorry .
 Parsing [sent. 12 len. 9]: No it 'll be super fun because cooking .
 Parsing [sent. 13 len. 2]: Sorry .
-Parsing [sent. 14 len. 4]: Click this link .
-Parsing [sent. 15 len. 3]: Because awesome .
-Parsing [sent. 16 len. 2]: Sorry .
-Parsing [sent. 17 len. 7]: Women get paid less because patriarchy .
-Parsing [sent. 18 len. 2]: Sorry .
-Parsed file: - [18 sentences].
-Parsed 95 words in 18 sentences (40.79 wds/sec; 7.73 sents/sec).
+Parsing [sent. 14 len. 3]: Because awesome .
+Parsing [sent. 15 len. 2]: Sorry .
+Parsing [sent. 16 len. 7]: Women get paid less because patriarchy .
+Parsing [sent. 17 len. 2]: Sorry .
+Parsing [sent. 18 len. 3]: because science !
+Parsing [sent. 19 len. 2]: Sorry .
+Parsed file: - [19 sentences].
+Parsed 96 words in 19 sentences (7.26 wds/sec; 1.44 sents/sec).

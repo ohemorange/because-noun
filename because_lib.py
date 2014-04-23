@@ -5,13 +5,16 @@ import re
 from parser import *
 
 re_bc = re.compile('.*because.*', re.IGNORECASE)
+re_cuz = re.compile('cuz', re.IGNORECASE)
 
 parser_running = False
 
 # sometimes clause, sometimes sentence
 def sentence_has_because(sentence):
-    global re_bc, parser_running
+    global re_bc, re_cuz, parser_running
     # first, check if because is in there at all
+    sentence = re_cuz.sub('because', sentence)
+
     if re.search(re_bc, sentence) is None:
         return False
 
@@ -28,12 +31,17 @@ def sentence_has_because(sentence):
 
 def is_PP_bc(tree):
     assert(tree.node == 'PP')
-    return tree[0][0].lower() == 'because'
+    word = tree[0][0].lower()
+    return word == 'because' or word == 'cuz'
 
 def tree_has_pbc(tree):
     if type(tree[-1]) == type('a_string'):
         return False
     if tree[-1].node == 'PP' and is_PP_bc(tree[-1]):
+        return True
+    # if the last is punctuation, the second to last can be PP
+    # . matches both . and !
+    if tree[-1].node == '.' and len(tree)>1 and tree[-2].node=='PP' and is_PP_bc(tree[-2]):
         return True
     for subtree in tree:
         if tree_has_pbc(subtree):
@@ -53,11 +61,14 @@ def has_because(text):
         if result == True:
             return True
 
-    # use whitespace to mark clause end
-    for sentence in text.splitlines():
-        result = sentence_has_because(sentence)
-        if result == True:
-            return True
+    # I'm worried how Stanford NLP will deal with this so
+    # um let's just turn it off for now.
+    if (False):
+        # use whitespace to mark clause end
+        for sentence in text.splitlines():
+            result = sentence_has_because(sentence)
+            if result == True:
+                return True
 
     return False
 
@@ -71,13 +82,15 @@ def exit_because():
 def test():
     s = "This is a sentence."
     t = "This is a sentence because awesome."
+    print s
     print has_because(s)
+    print t
     print has_because(t)
     f = open("test_sentences.txt")
     all = f.read()
     for s in all.splitlines():
         print s
-        print sentence_has_because(s)
+        print has_because(s)
     exit_because()
 
 test()
