@@ -41,3 +41,6 @@ def sample_function(post):
 
 def sample_map():
    map(sample_function)
+
+def add_lol(post):
+   post["origin-tag"] = "lol"

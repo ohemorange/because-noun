@@ -20,12 +20,13 @@ def feed_to_parser(text):
 def spawn_stanford_parser():
     sys.stdout.flush()
     global p
-    p = subprocess.Popen('bash stanford-parser-full-2014-01-04/lexparser.sh -sentence newline -', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    p = subprocess.Popen('exec bash stanford-parser-full-2014-01-04/lexparser.sh -sentence newline -', shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     feed_to_parser("")
 
 def exit_parser():
     p.stdin.close()
     sys.stdout.flush()
+    p.kill()
 
 # will only parse the first sentence it receives
 def sentence_parse(text):

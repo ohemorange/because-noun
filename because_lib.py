@@ -10,7 +10,7 @@ re_bc = re.compile('.*because.*', re.IGNORECASE)
 re_cuz = re.compile('cuz', re.IGNORECASE)
 
 parser_running = False
-MAX_PARSES = 24
+MAX_PARSES = 50
 parses = 0
 
 # sometimes clause, sometimes sentence
@@ -24,10 +24,10 @@ def sentence_has_because(sentence):
 
     # too many at a time will make it run out of memory,
     # so take a hit on time
-#    if parses >= MAX_PARSES:
- #       exit_because()
- #      parser_running = False
-  #      parses = 0
+    if parses >= MAX_PARSES:
+        exit_because()
+        parser_running = False
+        parses = 0
 
     # long sentences cause us to run out of memory
     if len(sentence) > 600:
@@ -43,7 +43,7 @@ def sentence_has_because(sentence):
     s_nlp_out = sentence_parse(sentence)
     tparse = nltk.tree.Tree.parse
     tree = tparse(s_nlp_out)
-    print tree
+#    print tree
     return tree_has_pbc(tree)
 
 def is_PP_bc(tree):
@@ -92,6 +92,7 @@ def has_because(text):
                     sentence = end_in_punctuation(sentence)
                 result = sentence_has_because(sentence)
                 if result == True:
+                    print sentence
                     return True
 
     # I'm worried how Stanford NLP will deal with this so
