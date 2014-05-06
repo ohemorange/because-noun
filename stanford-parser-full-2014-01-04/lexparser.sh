@@ -10,7 +10,8 @@ fi
 
 scriptdir=`dirname $0`
 
-java -mx150m -cp "$scriptdir/*:" edu.stanford.nlp.parser.lexparser.LexicalizedParser \
- -outputFormat "penn" edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz -
+java -Xmx2048M -cp "$scriptdir/*:" edu.stanford.nlp.parser.lexparser.LexicalizedParser \
+ -outputFormat "penn"  edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz -
 #"typedDependencies
 # ended with $*
+#-mx150m

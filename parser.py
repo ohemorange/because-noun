@@ -13,7 +13,8 @@
 import os, sys, subprocess
 
 def feed_to_parser(text):
-    p.stdin.write(text + '\nSorry.\n')
+    hacky_text = text+'\nSorry.\n'
+    p.stdin.write(hacky_text.encode('UTF-8'))
 
 # please excuse my hardcoding.
 def spawn_stanford_parser():
@@ -41,6 +42,9 @@ def sentence_parse(text):
     while line != "\n":
         out += line
         line = p.stdout.readline()
+    if "Sorry" in out:
+        feed_to_parser("")
+    # we lose this one. it happens.
     return out
 
 def test():

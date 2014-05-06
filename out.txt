@@ -1,0 +1,292 @@
+This is a sentence.
+False
+This is a sentence because awesome.
+(ROOT
+  (S
+    (NP (DT This))
+    (VP
+      (VBZ is)
+      (NP
+        (NP (DT a) (NN sentence))
+        (PP (RB because) (ADJP (JJ awesome)))))
+    (. .)))
+True
+this sentence goes on multiple lines
+because testing
+
+(ROOT
+  (S
+    (NP (DT this) (NN sentence))
+    (VP
+      (VBZ goes)
+      (PP (IN on) (NP (JJ multiple) (NNS lines)))
+      (PP (IN because) (NP (NN testing))))
+    (. .)))
+True
+I love school, because big data.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (VBP love)
+      (NP (NN school))
+      (, ,)
+      (PP (IN because) (NP (JJ big) (NNS data))))
+    (. .)))
+True
+Dr. Period Test, how are you today?
+False
+Sorry, I can't make it later because reasons.
+(ROOT
+  (S
+    (ADVP (RB Sorry))
+    (, ,)
+    (NP (PRP I))
+    (VP
+      (MD ca)
+      (RB n't)
+      (VP
+        (VB make)
+        (NP (PRP it))
+        (ADVP (RB later))
+        (PP (IN because) (NP (NNS reasons)))))
+    (. .)))
+True
+can't go because reasons.
+(ROOT
+  (S
+    (VP
+      (MD ca)
+      (RB n't)
+      (VP (VB go) (PP (IN because) (NP (NNS reasons)))))
+    (. .)))
+True
+I would love to, but I can't because I have a thing.
+(ROOT
+  (S
+    (S (NP (PRP I)) (VP (MD would) (VP (VB love) (PP (TO to)))))
+    (, ,)
+    (CC but)
+    (S
+      (NP (PRP I))
+      (VP
+        (MD ca)
+        (RB n't)
+        (PP (IN because) (NP (PRP I)))
+        (VP (VB have) (NP (DT a) (NN thing)))))
+    (. .)))
+False
+There's nothing we can do because science hasn't yet found a cure.
+(ROOT
+  (S
+    (NP (EX There))
+    (VP
+      (VBZ 's)
+      (NP
+        (NP (NN nothing))
+        (SBAR
+          (S
+            (NP (PRP we))
+            (VP
+              (MD can)
+              (VP
+                (VB do)
+                (SBAR
+                  (IN because)
+                  (S
+                    (NP (NN science))
+                    (VP
+                      (VBZ has)
+                      (RB n't)
+                      (ADVP (RB yet))
+                      (VP (VBN found) (NP (DT a) (NN cure))))))))))))
+    (. .)))
+False
+No it'll be super fun because cooking.
+(ROOT
+  (S
+    (NP (DT No) (PRP it))
+    (VP
+      (MD 'll)
+      (VP
+        (VB be)
+        (NP (JJ super) (NN fun))
+        (PP (IN because) (NP (NN cooking)))))
+    (. .)))
+True
+Click this link. Because awesome.
+(ROOT (FRAG (PP (IN Because) (NP (JJ awesome))) (. .)))
+True
+Women get paid less because patriarchy.
+(ROOT
+  (S
+    (NP (NNP Women))
+    (VP
+      (VBP get)
+      (VP
+        (VBN paid)
+        (ADVP (RBR less))
+        (PP (IN because) (NP (NN patriarchy)))))
+    (. .)))
+True
+Cuz science! That's why!
+(ROOT (FRAG (PP (IN because) (NP (NN science))) (. !)))
+True
+Then 10 minutes later, they throw a fit because they're hungry.
+(ROOT
+  (S
+    (RB Then)
+    (NP (CD 10) (NNS minutes) (RB later))
+    (, ,)
+    (NP (PRP they))
+    (VP
+      (VBP throw)
+      (NP (DT a) (NN fit))
+      (SBAR
+        (IN because)
+        (S (NP (PRP they)) (VP (VBP 're) (ADJP (JJ hungry))))))
+    (. .)))
+False
+He'd do the thing and it'd be funny because it involves the other thing.
+(ROOT
+  (S
+    (S
+      (NP (PRP He))
+      (VP (MD 'd) (VP (VB do) (NP (DT the) (NN thing)))))
+    (CC and)
+    (S
+      (NP (PRP it))
+      (VP
+        (MD 'd)
+        (VP
+          (VB be)
+          (ADJP (JJ funny))
+          (SBAR
+            (IN because)
+            (S
+              (NP (PRP it))
+              (VP (VBZ involves) (NP (DT the) (JJ other) (NN thing))))))))
+    (. .)))
+False
+Because really, when it comes down to it we're all just humans.
+(ROOT
+  (S
+    (PP (IN Because) (ADVP (RB really)))
+    (, ,)
+    (SBAR
+      (WHADVP (WRB when))
+      (S
+        (NP (PRP it))
+        (VP (VBZ comes) (PRT (RP down)) (PP (TO to) (NP (PRP it))))))
+    (NP (PRP we))
+    (VP (VBP 're) (RB all) (ADVP (RB just)) (NP (NNS humans)))
+    (. .)))
+False
+I love that his show will be on WE, because that's hilarious.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (VBP love)
+      (SBAR
+        (IN that)
+        (S
+          (NP (PRP$ his) (NN show))
+          (VP
+            (MD will)
+            (VP
+              (VB be)
+              (PP (IN on) (NP (NNP WE)))
+              (, ,)
+              (SBAR
+                (IN because)
+                (S
+                  (NP (DT that))
+                  (VP (VBZ 's) (ADJP (JJ hilarious))))))))))
+    (. .)))
+False
+The sky is blue because science, and also something about physics.
+(ROOT
+  (S
+    (NP (DT The) (NN sky))
+    (VP
+      (VBZ is)
+      (NP
+        (NP
+          (JJ blue)
+          (UCP
+            (PP (IN because) (NP (NN science)))
+            (, ,)
+            (CC and)
+            (ADVP (RB also)))
+          (NN something))
+        (PP (IN about) (NP (NN physics)))))
+    (. .)))
+False
+The sky is blue because science, man.
+(ROOT
+  (S
+    (NP (DT The) (NN sky))
+    (VP
+      (VBZ is)
+      (ADJP (JJ blue) (PP (IN because) (NP (NN science))))
+      (, ,)
+      (INTJ (UH man)))
+    (. .)))
+True
+I'm working today, because commitments and also because I want to.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (VBP 'm)
+      (VP
+        (VBG working)
+        (NP (NN today))
+        (, ,)
+        (UCP
+          (PP (IN because) (NP (NNS commitments)))
+          (CC and)
+          (ADVP (RB also))
+          (SBAR
+            (IN because)
+            (S (NP (PRP I)) (VP (VBP want) (PP (TO to))))))))
+    (. .)))
+False
+I'm reading this because of the web.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (VBP 'm)
+      (VP
+        (VBG reading)
+        (NP
+          (NP (DT this))
+          (PP (RB because) (IN of) (NP (DT the) (NN web))))))
+    (. .)))
+True
+I'm reading this because of course.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (VBP 'm)
+      (VP
+        (VBG reading)
+        (NP
+          (NP (DT this))
+          (PP (RB because) (IN of) (NP (NN course))))))
+    (. .)))
+True
+I can't because I have a thing.
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP
+      (MD ca)
+      (RB n't)
+      (PP (IN because) (NP (PRP I)))
+      (VP (VB have) (NP (DT a) (NN thing))))
+    (. .)))
+False

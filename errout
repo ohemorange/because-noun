@@ -1,4 +1,24 @@
-  File "because_lib.py", line 103
-    priny r
-          ^
-SyntaxError: invalid syntax
+Loading parser from serialized file edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz ... done [3.7 sec].
+Parsing file: -
+Parsing [sent. 1 len. 2]: Sorry .
+Parsing [sent. 2 len. 13]: Because I 'm Hatty We had to join in on the fun .
+Parsing [sent. 3 len. 2]: Sorry .
+Parsing [sent. 4 len. 21]: reblog this if you want me to love your blog because i 'm always looking for new people to follow .
+Sentence too long (or zero words).
+Traceback (most recent call last):
+  File "analysis.py", line 10, in <module>
+    print pbc_count()
+  File "analysis.py", line 7, in pbc_count
+    pbc_posts = [post for post in bc_posts if has_because(post["text"])]
+  File "/data/db/because-noun/because_lib.py", line 83, in has_because
+    result = sentence_has_because(sentence)
+  File "/data/db/because-noun/because_lib.py", line 38, in sentence_has_because
+    s_nlp_out = sentence_parse(sentence)
+  File "/data/db/because-noun/parser.py", line 44, in sentence_parse
+    line = p.stdout.readline()
+KeyboardInterrupt
+Parsing [sent. 5 len. 2]: Sorry .
+Parsed file: - [5 sentences].
+Parsed 19 words in 5 sentences (0.07 wds/sec; 0.02 sents/sec).
+  1 sentences were not parsed:
+    1 were skipped as length 0 or greater than 20
